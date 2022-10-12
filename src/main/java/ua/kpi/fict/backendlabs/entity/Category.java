@@ -1,4 +1,4 @@
-package ua.kpi.fict.backendlabs.model;
+package ua.kpi.fict.backendlabs.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,8 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class Category {
-    private Integer categoryID;
+    private Long ID;
     private String categoryName;
 }

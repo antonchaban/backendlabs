@@ -1,4 +1,4 @@
-package ua.kpi.fict.backendlabs.model;
+package ua.kpi.fict.backendlabs.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Record {
-    private Integer recordID;
+    private Long ID;
     private Integer userID;
     private Integer categoryID;
     private Instant recordTime;
