@@ -18,7 +18,7 @@ public class UserController {
     @Autowired
     private CustomerRepo customerRepo;
 
-    @PostMapping
+    @PostMapping("signup")
     public ResponseEntity regCustomer(@RequestBody Customer customer) {
         if (customerRepo.findCustomerByUsername(customer.getUsername()) != null){
             return ResponseEntity.badRequest().body("Username already taken");
