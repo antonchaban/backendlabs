@@ -3,10 +3,8 @@ package ua.kpi.fict.backendlabs.entity;
 import com.sun.istack.NotNull;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @ToString
 @RequiredArgsConstructor
@@ -22,4 +20,11 @@ public class Category {
 
     @NotNull
     private String categoryName;
+
+    @ManyToMany
+    @JoinTable(
+            name = "category_rec",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "record_id"))
+    List<Record> records;
 }

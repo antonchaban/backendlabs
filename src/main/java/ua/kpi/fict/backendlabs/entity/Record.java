@@ -1,19 +1,37 @@
 package ua.kpi.fict.backendlabs.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.money.MonetaryAmount;
+import javax.persistence.*;
 import java.time.Instant;
+import java.util.List;
 
-@Data
+@ToString
+@RequiredArgsConstructor
+@Entity
 @AllArgsConstructor
-@NoArgsConstructor
+@Getter
+@EqualsAndHashCode
 public class Record {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ID;
-    private Integer userID;
-    private Integer categoryID;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+    private Integer categoryID; // todo'
+
+
+    @ManyToMany(mappedBy = "records")
+    private List<Category> categories;
     private Instant recordTime;
-    private MonetaryAmount moneySpent;
+    private Double moneySpent;
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+
 }
