@@ -21,10 +21,6 @@ public class Category {
     @NotNull
     private String categoryName;
 
-    @ManyToMany
-    @JoinTable(
-            name = "category_rec",
-            joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name = "record_id"))
-    List<Record> records;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+    private List<Record> records;
 }

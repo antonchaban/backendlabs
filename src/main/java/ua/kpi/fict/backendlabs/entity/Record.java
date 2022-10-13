@@ -17,15 +17,13 @@ public class Record {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ID;
-
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
-    private Integer categoryID; // todo'
 
-
-    @ManyToMany(mappedBy = "records")
-    private List<Category> categories;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
     private Instant recordTime;
     private Double moneySpent;
 
