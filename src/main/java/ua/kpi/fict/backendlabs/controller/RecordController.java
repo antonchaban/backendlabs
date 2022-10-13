@@ -12,6 +12,7 @@ import ua.kpi.fict.backendlabs.repository.CustomerRepo;
 import ua.kpi.fict.backendlabs.repository.RecordRepo;
 
 import java.time.Instant;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/records")
@@ -42,5 +43,20 @@ public class RecordController {
     @GetMapping("allRecords")
     public ResponseEntity getAllRecords(){
         return ResponseEntity.ok(recordRepo.findAll());
+    }
+
+
+
+    @GetMapping("customersRecords/{customerID}")
+    public ResponseEntity getCustomersRecords(@PathVariable Long customerID){
+        return ResponseEntity.ok(recordRepo.findRecordByCustomerID(customerID));
+    }
+
+    @GetMapping("customersRecordsByCategory/{customerID}")
+    public ResponseEntity getCustomersRecordsByCategory(@PathVariable Long customerID, @RequestParam Long categoryID){
+        Customer customer = customerRepo.findById(customerID).get();
+        Category category = categoryRepo.findById(categoryID).get();
+
+        return ResponseEntity.ok(recordRepo.findRecordByCustomerAndCategory(customer, category));
     }
 }
