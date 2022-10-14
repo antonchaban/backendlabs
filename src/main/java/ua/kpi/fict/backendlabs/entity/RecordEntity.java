@@ -1,11 +1,9 @@
 package ua.kpi.fict.backendlabs.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.util.List;
 
 @RequiredArgsConstructor
 @Entity
@@ -14,7 +12,7 @@ import java.util.List;
 @Setter
 @ToString
 @EqualsAndHashCode
-public class Record {
+public class RecordEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,18 +21,18 @@ public class Record {
     @ToString.Exclude
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private CustomerEntity customerEntity;
 
     @ToString.Exclude
     @ManyToOne
     @JoinColumn(name = "category_id")
-    private Category category;
+    private CategoryEntity categoryEntity;
 
     private Instant recordTime;
     private Double moneySpent;
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerEntity(CustomerEntity customerEntity) {
+        this.customerEntity = customerEntity;
     }
 
 //    public void setCategory(Category category) {

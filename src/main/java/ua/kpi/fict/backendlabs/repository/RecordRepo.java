@@ -1,16 +1,17 @@
 package ua.kpi.fict.backendlabs.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import ua.kpi.fict.backendlabs.entity.Category;
-import ua.kpi.fict.backendlabs.entity.Customer;
-import ua.kpi.fict.backendlabs.entity.Record;
+import ua.kpi.fict.backendlabs.entity.CategoryEntity;
+import ua.kpi.fict.backendlabs.entity.CustomerEntity;
+import ua.kpi.fict.backendlabs.entity.RecordEntity;
 
 import java.util.List;
 
-public interface RecordRepo extends CrudRepository<Record, Long> {
-    List<Record> findRecordByCustomerID(Long cusID);
-    List<Record> findRecordByCategoryID(Long catID);
+public interface RecordRepo extends CrudRepository<RecordEntity, Long> {
+    List<RecordEntity> findRecordByCustomerEntityID(Long cusID);
+    List<RecordEntity> findRecordByCategoryEntityID(Long catID);
 
-    List<Record> findRecordByCustomerAndCategory(Customer customer, Category category);
+
+    List<RecordEntity> findRecordByCustomerEntityAndCategoryEntity(CustomerEntity customerEntity, CategoryEntity categoryEntity);
 
 }

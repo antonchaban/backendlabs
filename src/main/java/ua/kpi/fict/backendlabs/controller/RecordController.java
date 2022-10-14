@@ -4,59 +4,43 @@ package ua.kpi.fict.backendlabs.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ua.kpi.fict.backendlabs.entity.Category;
-import ua.kpi.fict.backendlabs.entity.Customer;
-import ua.kpi.fict.backendlabs.entity.Record;
+import ua.kpi.fict.backendlabs.entity.CategoryEntity;
+import ua.kpi.fict.backendlabs.entity.CustomerEntity;
+import ua.kpi.fict.backendlabs.entity.RecordEntity;
 import ua.kpi.fict.backendlabs.repository.CategoryRepo;
 import ua.kpi.fict.backendlabs.repository.CustomerRepo;
 import ua.kpi.fict.backendlabs.repository.RecordRepo;
+import ua.kpi.fict.backendlabs.service.RecordService;
 
 import java.time.Instant;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/records")
 public class RecordController {
 
     @Autowired
-    private RecordRepo recordRepo;
-
-    @Autowired
-    private CustomerRepo customerRepo;
-
-    @Autowired
-    private CategoryRepo categoryRepo;
+    private RecordService recordService;
 
 
     @PostMapping("createRecord")
-    public ResponseEntity createRecord(@RequestBody Record record, @RequestParam Long customerID,
+    public ResponseEntity createRecord(@RequestBody RecordEntity recordEntity, @RequestParam Long customerID,
                                        @RequestParam Long categoryID) {
-        Customer customer = customerRepo.findById(customerID).get();
-        record.setCustomer(customer);
-        Category category = categoryRepo.findById(categoryID).get();
-        record.setCategory(category);
-        record.setRecordTime(Instant.now());
-        recordRepo.save(record);
-        return ResponseEntity.ok(record);
+        return ResponseEntity.ok(recordService.createRecord(recordEntity, customerID, categoryID));
     }
 
     @GetMapping("allRecords")
-    public ResponseEntity getAllRecords(){
-        return ResponseEntity.ok(recordRepo.findAll());
+    public ResponseEntity getAllRecords() {
+        return ResponseEntity.ok(recordService.getAllRecords());
     }
-
 
 
     @GetMapping("customersRecords/{customerID}")
-    public ResponseEntity getCustomersRecords(@PathVariable Long customerID){
-        return ResponseEntity.ok(recordRepo.findRecordByCustomerID(customerID));
+    public ResponseEntity getCustomersRecords(@PathVariable Long customerID) {
+        return ResponseEntity.ok(recordService.getCustomersRecords(customerID));
     }
 
     @GetMapping("customersRecordsByCategory/{customerID}")
-    public ResponseEntity getCustomersRecordsByCategory(@PathVariable Long customerID, @RequestParam Long categoryID){
-        Customer customer = customerRepo.findById(customerID).get();
-        Category category = categoryRepo.findById(categoryID).get();
-
-        return ResponseEntity.ok(recordRepo.findRecordByCustomerAndCategory(customer, category));
+    public ResponseEntity getCustomersRecordsByCategory(@PathVariable Long customerID, @RequestParam Long categoryID) {
+        return ResponseEntity.ok(recordService.getCustomersRecordsByCategory(customerID, categoryID));
     }
 }

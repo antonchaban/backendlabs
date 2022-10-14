@@ -3,11 +3,9 @@ package ua.kpi.fict.backendlabs.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Objects;
 
 @RequiredArgsConstructor
 @Entity
@@ -17,7 +15,7 @@ import java.util.Objects;
 @Setter
 @ToString
 @EqualsAndHashCode
-public class Category {
+public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ID;
@@ -25,9 +23,9 @@ public class Category {
     @NotNull
     private String categoryName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryEntity")
     @ToString.Exclude
     @JsonIgnore
-    private List<Record> records;
+    private List<RecordEntity> recordEntities;
 
 }
