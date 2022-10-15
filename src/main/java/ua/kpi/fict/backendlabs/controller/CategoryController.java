@@ -12,20 +12,13 @@ import ua.kpi.fict.backendlabs.service.CategoryService;
 import javax.naming.NameAlreadyBoundException;
 
 @RestController
-@RequestMapping("/api/categories")
+@RequestMapping("/api/v1")
 public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
 
-    @PostMapping("createCategory")
-//    public ResponseEntity createCategory(@RequestBody CategoryEntity categoryEntity) {
-//        if (categoryRepo.findCategoryByCategoryName(categoryEntity.getCategoryName()) != null){
-//            return ResponseEntity.badRequest().body("Category name already taken");
-//        }
-//        categoryRepo.save(categoryEntity);
-//        return ResponseEntity.ok("Category Created");
-//    }
+    @PostMapping("categories")
     public ResponseEntity createCategory(@RequestBody CategoryEntity categoryEntity) {
         try {
             categoryService.createCategory(categoryEntity);
@@ -37,7 +30,7 @@ public class CategoryController {
         }
     }
 
-    @GetMapping("viewCategories")
+    @GetMapping("categories")
     public ResponseEntity getAllCategories(){
         return ResponseEntity.ok(categoryService.getAllCategories());
     }

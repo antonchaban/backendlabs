@@ -13,13 +13,13 @@ import ua.kpi.fict.backendlabs.service.CustomerService;
 import javax.naming.NameAlreadyBoundException;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/v1")
 public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
 
-    @PostMapping("signup")
+    @PostMapping("users")
     public ResponseEntity regCustomer(@RequestBody CustomerEntity customerEntity) {
         try {
             customerService.signUp(customerEntity);

@@ -13,6 +13,6 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD=3ea08a135f10e281658920e90bf7161cbc1334e4f32dd232b8bf2bbfb6b8fc4a
-      - POSTGRES_USER=jayvvkdkapupfh
-      - POSTGRES_DB=d4dlamilkl85bg
+      - POSTGRES_PASSWORD=8788de39767cfe238a278d4a55d7565893de5fd3fe58fa4750c950a45d45e00b
+      - POSTGRES_USER=dmcojkslplvqzx
+      - POSTGRES_DB=d4nh7lrjdi142l

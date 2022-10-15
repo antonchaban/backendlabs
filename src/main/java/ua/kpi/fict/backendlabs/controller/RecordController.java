@@ -15,32 +15,32 @@ import ua.kpi.fict.backendlabs.service.RecordService;
 import java.time.Instant;
 
 @RestController
-@RequestMapping("/api/records")
+@RequestMapping("/api/v1")
 public class RecordController {
 
     @Autowired
     private RecordService recordService;
 
 
-    @PostMapping("createRecord")
+    @PostMapping("records")
     public ResponseEntity createRecord(@RequestBody RecordEntity recordEntity, @RequestParam Long customerID,
                                        @RequestParam Long categoryID) {
         return ResponseEntity.ok(recordService.createRecord(recordEntity, customerID, categoryID));
     }
 
-    @GetMapping("allRecords")
+    @GetMapping("records")
     public ResponseEntity getAllRecords() {
         return ResponseEntity.ok(recordService.getAllRecords());
     }
 
 
-    @GetMapping("customersRecords/{customerID}")
+    @GetMapping("/users/{customerID}/records")
     public ResponseEntity getCustomersRecords(@PathVariable Long customerID) {
         return ResponseEntity.ok(recordService.getCustomersRecords(customerID));
     }
 
-    @GetMapping("customersRecordsByCategory/{customerID}")
-    public ResponseEntity getCustomersRecordsByCategory(@PathVariable Long customerID, @RequestParam Long categoryID) {
+    @GetMapping("/users/{customerID}/categories/{categoryID}/records")
+    public ResponseEntity getCustomersRecordsByCategory(@PathVariable Long customerID, @PathVariable Long categoryID) {
         return ResponseEntity.ok(recordService.getCustomersRecordsByCategory(customerID, categoryID));
     }
 }
