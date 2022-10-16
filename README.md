@@ -2,6 +2,7 @@
 
 ### [**Link to heroku**](https://heroku-backend-dockerlab.herokuapp.com)
 ### [Link to Postman Queries](https://github.com/antonchaban/backendlabs/blob/master/postmanqueries.json)
+### [Link to Heroku view categories](https://heroku-backend-dockerlab.herokuapp.com/api/v1/categories/)
 
 ## Endpoints:
 
