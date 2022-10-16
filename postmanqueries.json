@@ -1,0 +1,360 @@
+{
+  "info": {
+    "_postman_id": "d6ffca2e-d292-41bf-8615-4b8ca2e3ac29",
+    "name": "Backendlab1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "21535259"
+  },
+  "item": [
+    {
+      "name": "SignUp(Local)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"LilToha\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{localvar}}/api/v1/users",
+          "host": [
+            "{{localvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Category(Local)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"categoryName\": \"War\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{localvar}}/api/v1/categories/",
+          "host": [
+            "{{localvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "categories",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get list of categories(Local)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{localvar}}/api/v1/categories/",
+          "host": [
+            "{{localvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "categories",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Record(Local)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"customerID\": \"6\",\r\n    \"categoryID\": \"14\",\r\n    \"moneySpent\": \"433\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{localvar}}/api/v1/records",
+          "host": [
+            "{{localvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "records"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "View all records(Local)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{localvar}}/api/v1/records",
+          "host": [
+            "{{localvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "records"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "View customer's records(Local)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{localvar}}/api/v1/users/3/records",
+          "host": [
+            "{{localvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "3",
+            "records"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "View customer's records by category(Local)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{localvar}}/api/v1/users/3/categories/14/records",
+          "host": [
+            "{{localvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "3",
+            "categories",
+            "14",
+            "records"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SignUp(Heroku)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"LilToha\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{herokuvar}}/api/v1/users",
+          "host": [
+            "{{herokuvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Category (Heroku)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"categoryName\": \"War\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{herokuvar}}/api/v1/categories/",
+          "host": [
+            "{{herokuvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "categories",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get list of categories (Heroku)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{herokuvar}}/api/v1/categories/",
+          "host": [
+            "{{herokuvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "categories",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create record (Heroku)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"customerID\": \"6\",\r\n    \"categoryID\": \"14\",\r\n    \"moneySpent\": \"433\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{herokuvar}}/api/v1/records",
+          "host": [
+            "{{herokuvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "records"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "View all records (Heroku)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{herokuvar}}/api/v1/records",
+          "host": [
+            "{{herokuvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "records"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "View customers records (Heroku)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{herokuvar}}/api/v1/users/3/records",
+          "host": [
+            "{{herokuvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "3",
+            "records"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "View customers records by category (Heroku)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{herokuvar}}/api/v1/users/3/categories/14/records",
+          "host": [
+            "{{herokuvar}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "3",
+            "categories",
+            "14",
+            "records"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "domain",
+      "value": "localhost:8080"
+    },
+    {
+      "key": "localvar",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "herokuvar",
+      "value": "https://heroku-backend-dockerlab.herokuapp.com"
+    }
+  ]
+}
