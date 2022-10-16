@@ -1,5 +1,7 @@
 package ua.kpi.fict.backendlabs.entity;
 
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,6 +14,7 @@ import java.time.Instant;
 @Setter
 @ToString
 @EqualsAndHashCode
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RecordEntity {
 
     @Id
@@ -31,11 +34,9 @@ public class RecordEntity {
     private Instant recordTime;
     private Double moneySpent;
 
-    public void setCustomerEntity(CustomerEntity customerEntity) {
-        this.customerEntity = customerEntity;
-    }
+    @Transient
+    private Long customerID;
 
-//    public void setCategory(Category category) {
-//        this.category = category;
-//    }
+    @Transient
+    private Long categoryID;
 }

@@ -26,10 +26,10 @@ public class RecordService {
     @Autowired
     private CategoryRepo categoryRepo;
 
-    public RecordEntity createRecord(RecordEntity record, Long customerID, Long categoryID) {
-        CustomerEntity customerEntity = customerRepo.findById(customerID).get();
+    public RecordEntity createRecord(RecordEntity record) {
+        CustomerEntity customerEntity = customerRepo.findById(record.getCustomerID()).get();
         record.setCustomerEntity(customerEntity);
-        CategoryEntity categoryEntity = categoryRepo.findById(categoryID).get();
+        CategoryEntity categoryEntity = categoryRepo.findById(record.getCategoryID()).get();
         record.setCategoryEntity(categoryEntity);
         record.setRecordTime(Instant.now());
         return recordRepo.save(record);

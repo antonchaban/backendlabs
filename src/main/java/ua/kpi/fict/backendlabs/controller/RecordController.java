@@ -23,9 +23,8 @@ public class RecordController {
 
 
     @PostMapping("records")
-    public ResponseEntity createRecord(@RequestBody RecordEntity recordEntity, @RequestParam Long customerID,
-                                       @RequestParam Long categoryID) {
-        return ResponseEntity.ok(recordService.createRecord(recordEntity, customerID, categoryID));
+    public ResponseEntity createRecord(@RequestBody RecordEntity recordEntity) {
+        return ResponseEntity.ok(recordService.createRecord(recordEntity));
     }
 
     @GetMapping("records")
