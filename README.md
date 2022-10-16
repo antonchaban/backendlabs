@@ -1,7 +1,7 @@
 # Basic REST API application for Cost Accounting
 
 ### [**Link to heroku**](https://heroku-backend-dockerlab.herokuapp.com)
-### Link to Postman Queries
+### [Link to Postman Queries](https://github.com/antonchaban/backendlabs/blob/master/postmanqueries.json)
 
 ## Endpoints:
 
