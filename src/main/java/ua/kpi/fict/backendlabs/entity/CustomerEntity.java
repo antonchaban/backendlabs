@@ -28,6 +28,10 @@ public class CustomerEntity {
     @JsonIgnore
     private List<RecordEntity> recordEntities;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "account_id")
+    private AccountEntity accountEntity;
+
     public void setRecordEntities(List<RecordEntity> recordEntities) {
         this.recordEntities = recordEntities;
     }
